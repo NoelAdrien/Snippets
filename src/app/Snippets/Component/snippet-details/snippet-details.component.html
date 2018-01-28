@@ -1,0 +1,35 @@
+<div style="margin-top: 50px">
+  <h2>Edit snippet</h2>
+
+  <div *ngIf="snippet">
+    <div><span>id: </span>{{snippet.id}}</div>
+
+    <label>Title:
+      <input [(ngModel)]="snippet.title" placeholder="title">
+    </label>
+
+    <label>Keywords:
+      <input [(ngModel)]="snippet.keywords" placeholder="keywords">
+    </label>
+
+    <label>Langage:
+      <select [(ngModel)]="snippet.langage">
+        <option *ngFor="let lang of langages" [value]="lang">{{lang.name}}</option>
+      </select>
+    </label>
+
+    <label>Public:
+      <input [(ngModel)]="snippet.isPublic" type="checkbox" />
+    </label>
+
+    <label>Snippet:
+      <textarea [(ngModel)]="snippet.code" placeholder="code" ></textarea>
+    </label>
+
+  </div>
+
+  <button (click)="saveSnippet()">Save</button>
+  <button (click)="goBack()">go back</button>
+
+</div>
+
