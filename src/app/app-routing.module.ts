@@ -3,23 +3,24 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
 
-import { SnippetComponent } from './Snippets/snippet/snippet.component';
 import { SearchSnippetsComponent } from './Search/search-snippets/search-snippets.component';
-import { AddSnippetComponent } from './Snippets/add-snippet/add-snippet.component';
+import { SnippetModule } from './Snippets/snippet/snippet.module';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/Snippets', pathMatch: 'full' },
-  { path: 'Snippets', component: SnippetComponent },
-  { path: 'Search', component: SearchSnippetsComponent },
-  { path: 'AddSnippet', component: AddSnippetComponent },
+  { path: '', redirectTo: '/Search', pathMatch: 'full' },
+  { path: 'Search', component: SearchSnippetsComponent }
 ];
 
 @NgModule({
-
-  exports: [RouterModule],
+  exports: [
+    RouterModule
+  ],
   imports: [
     CommonModule,
-    [ RouterModule.forRoot(routes) ],
+    SnippetModule,
+    [
+      RouterModule.forRoot(routes, {enableTracing: true})
+    ],
   ],
   declarations: []
 })

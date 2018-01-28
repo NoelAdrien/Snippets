@@ -1,0 +1,27 @@
+
+<div style="margin-top: 50px">
+  <h2>Add a new snippet</h2>
+
+  Title :
+  <input type="text" #title />
+
+  Keywords
+  <input type="text" #keywords />
+  <br/>
+
+  Langage :
+  <select #langage class="form-control" id="SnippLangages" required>
+    <option *ngFor="let lang of langages" [value]="lang">{{lang.name}}</option>
+  </select>
+  <br/>
+
+  Public
+  <input type="checkbox" #isPublic checked="checked" />
+  <br/>
+
+  Snippet
+  <textarea #code></textarea>
+  <br/>
+
+  <button (click)="AddSnippet(title.value, keywords.value, langage.value, isPublic.checked, code.value);">Add</button>
+</div>

@@ -5,3 +5,4 @@ export const LANGAGES: Langages [] = [
   { id: 2, code: 'ang', name: 'Angular' },
   { id: 3, code: 'sql', name: 'Sql' },
 ];
+

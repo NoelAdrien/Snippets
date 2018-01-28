@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Snippet } from '../../Model/Snippet';
 import { LANGAGES } from '../../Mock/mock-langages';
 
 @Component({
-  selector: 'app-snippet',
-  templateUrl: './snippet.component.html',
-  styleUrls: ['./snippet.component.css']
+  selector: 'app-user-snippet',
+  templateUrl: './user-snippet.component.html',
+  styleUrls: ['./user-snippet.component.css']
 })
 
-export class SnippetComponent implements OnInit {
+export class UserSnippetComponent implements OnInit {
 
   snippets: Snippet [] = [
     {
@@ -28,9 +29,17 @@ export class SnippetComponent implements OnInit {
       this.snippets.splice(index, 1);
     }
   }
-  constructor() { }
+
+  editSnippet(snippet: Snippet): void {
+    this.route.navigate([`/Snippets/Edit/${snippet.id}`]);
+  }
+
+  RedirectAdd(): void {
+    this.route.navigate(['Snippets/Add']);
+  }
+
+  constructor(private route: Router) { }
 
   ngOnInit() {
   }
-
 }

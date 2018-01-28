@@ -1,15 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
+import { SnippetRoutingModule } from './Snippets/snippet/snippet-routing.module';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import { SearchSnippetsComponent } from './Search/search-snippets/search-snippets.component';
 import { ResultSearchSnippetsComponent } from './Search/result-search-snippets/result-search-snippets.component';
 import { UserInformationsComponent } from './Users/user-informations/user-informations.component';
 import { ProfilComponent } from './Users/profil/profil.component';
-import { SnippetComponent } from './Snippets/snippet/snippet.component';
-import { AddSnippetComponent } from './Snippets/add-snippet/add-snippet.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +17,11 @@ import { AddSnippetComponent } from './Snippets/add-snippet/add-snippet.componen
     ResultSearchSnippetsComponent,
     UserInformationsComponent,
     ProfilComponent,
-    SnippetComponent,
-    AddSnippetComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SnippetRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,22 @@
+<h2>My Snippets <button class="Add" (click)="RedirectAdd()" title="Add">+</button> </h2>
+
+<ul>
+  <li *ngFor="let snippet of snippets">
+    <span>{{snippet.id}}</span> {{snippet.title}}
+
+    <span *ngIf="snippet.isPublic" style="color: green; font-weight: bold;">
+        PUBLIC
+    </span>
+    <span *ngIf="!snippet.isPublic" style="color: red; font-weight: bold;">
+        PRIVATE
+    </span>
+
+    <span>Keywords : </span> <span>{{snippet.keywords}}</span>
+    <span>Langage : {{snippet.langage.name}}</span> <textarea>{{snippet.code}}</textarea>
+    <button class="edit" (click)="editSnippet(snippet)" title="Edit Snippet">Edit</button>
+    <button class="delete" (click)="deleteSnippet(snippet)" title="delete snippet">X</button>
+  </li>
+</ul>
+
+
+
