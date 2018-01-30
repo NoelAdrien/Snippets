@@ -1,3 +1,6 @@
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+
 import { Injectable } from '@angular/core';
 import { Snippet } from '../Model/Snippet';
 
@@ -9,12 +12,12 @@ export class SnippetService {
 
   constructor() { }
 
-  getSnippets(): Snippet [] {
-    return SNIPPETS;
+  getSnippets(): Observable<Snippet []> {
+    return of(SNIPPETS);
   }
 
-  getSnippet(id: Number): Snippet {
-    return SNIPPETS.find(x => x.id === id);
+  getSnippet(id: Number): Observable<Snippet> {
+    return of(SNIPPETS.find(x => x.id === id));
   }
 
   addSnippet(snippet: Snippet): void {
@@ -25,7 +28,7 @@ export class SnippetService {
     // TODO
   }
 
-  deleteSnippet(snippet: Snippet): void{
+  deleteSnippet(snippet: Snippet): void {
     // TODO
   }
 }
