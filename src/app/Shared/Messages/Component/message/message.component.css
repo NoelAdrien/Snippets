@@ -1,0 +1,13 @@
+.Info {
+  background-color:rgba(65, 65, 252, 0.795);
+  color: white;
+  padding: 2px;
+  font-weight: bold;
+}
+
+.Success{
+  background-color: green;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}

@@ -6,29 +6,42 @@ import { Snippet } from '../Model/Snippet';
 
 import { SNIPPETS } from '../Mock/mock-snippets';
 
+import { MessageService } from '../../Shared/Messages/Services/message.service';
+
 @Injectable()
 
 export class SnippetService {
 
-  constructor() { }
+  snippets: Snippet[] = SNIPPETS;
 
-  getSnippets(): Observable<Snippet []> {
-    return of(SNIPPETS);
+  constructor(private messageService: MessageService) { }
+
+  getSnippets(): Observable<Snippet[]> {
+    return of(this.snippets);
   }
 
   getSnippet(id: Number): Observable<Snippet> {
-    return of(SNIPPETS.find(x => x.id === id));
+    return of(this.snippets.find(x => x.id === id));
   }
 
   addSnippet(snippet: Snippet): void {
-
+    this.snippets.push(snippet);
+    this.messageService.Add(`Snippet Added  ${snippet.id}`, 'Success');
   }
 
   updateSnippet(snippet: Snippet): void {
-    // TODO
+    const index = this.snippets.findIndex(x => x.id === snippet.id);
+    if (index > -1) {
+      this.snippets[index] = snippet;
+    }
+    this.messageService.Add(`Snippet Updated  ${snippet.id}`, 'Success');
   }
 
   deleteSnippet(snippet: Snippet): void {
-    // TODO
+    const index = this.snippets.findIndex(x => x.id === snippet.id);
+    if (index > -1) {
+      this.snippets.splice(index, 1);
+    }
+    this.messageService.Add(`Snippet Deleted`, 'Success');
   }
 }

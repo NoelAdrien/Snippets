@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { SnippetService } from '../../Services/snippet.service';
 
@@ -16,7 +15,7 @@ export class UserSnippetComponent implements OnInit {
 
   snippets: Snippet [];
 
-  constructor(private route: Router, private snippetService: SnippetService) { }
+  constructor(private snippetService: SnippetService) { }
 
   ngOnInit() {
     this.getSnippets();
@@ -26,19 +25,9 @@ export class UserSnippetComponent implements OnInit {
       this.snippetService.getSnippets().subscribe(snippetsApi => this.snippets = snippetsApi);
   }
 
-  editSnippet(snippet: Snippet): void {
-    this.route.navigate([`/Snippets/Edit/${snippet.id}`]);
-  }
-
   deleteSnippet(snippet: Snippet): void {
-    const index = this.snippets.findIndex(x => x.id === snippet.id);
-    if (index > -1) {
-      this.snippets.splice(index, 1);
-    }
-  }
-
-  RedirectAdd(): void {
-    this.route.navigate(['Snippets/Add']);
+    this.snippetService.deleteSnippet(snippet);
+    this.snippetService.getSnippets().subscribe(snippetsAPI => this.snippets = snippetsAPI);
   }
 
 }
