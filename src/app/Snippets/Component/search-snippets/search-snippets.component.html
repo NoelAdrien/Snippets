@@ -1,0 +1,24 @@
+<h1>
+  Search a snippet</h1>
+Langage :
+<select #langage >
+  <option *ngFor="let lang of langages" [value]="lang.id">{{lang.name}}</option>
+</select>
+<label>Keywords</label>
+<input type="text" #keywords/>
+<button type="button" (click)="searchSnippets(keywords.value, langage.value)">Search</button>
+
+<div *ngIf="snippets">
+  <ul>
+    <li *ngFor="let snippet of snippets">
+      <span>{{snippet.id}}</span> {{snippet.title}}
+      <span>Keywords : </span>
+      <span>{{snippet.keywords}}</span>
+      <span>Langage : {{snippet.langage.name}}</span>
+      <textarea disabled="disabled">{{snippet.code}}</textarea>
+    </li>
+  </ul>
+  <div *ngIf="snippets.length === 0">
+    No snippets found
+  </div>
+</div>

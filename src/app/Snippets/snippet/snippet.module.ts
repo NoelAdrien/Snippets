@@ -7,11 +7,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserSnippetComponent } from '../../Snippets/Component/user-snippet/user-snippet.component';
 import { AddSnippetComponent } from '../../Snippets/Component/add-snippet/add-snippet.component';
 import { SnippetDetailsComponent } from '../../Snippets/Component/snippet-details/snippet-details.component';
+import { SearchSnippetsComponent } from '../Component/search-snippets/search-snippets.component';
 
 import { SnippetService } from '../Services/snippet.service';
 
 const snippetRoutes: Routes = [
   { path: 'Snippets', component: UserSnippetComponent },
+  { path: 'Snippets/Search', component: SearchSnippetsComponent },
   { path: 'Snippets/Add', component: AddSnippetComponent },
   { path: 'Snippets/Edit/:id', component: SnippetDetailsComponent },
 ];
@@ -26,7 +28,8 @@ const snippetRoutes: Routes = [
   declarations: [
     UserSnippetComponent,
     AddSnippetComponent,
-    SnippetDetailsComponent
+    SnippetDetailsComponent,
+    SearchSnippetsComponent
   ],
   providers: [SnippetService]
 })
