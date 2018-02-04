@@ -13,8 +13,8 @@
     </label>
 
     <label>Langage:
-      <select [(ngModel)]="snippet.langage">
-        <option *ngFor="let lang of langages" [value]="lang">{{lang.name}}</option>
+      <select>
+        <option *ngFor="let lang of langages" [selected]="lang == snippet.langage" [value]="lang">{{lang.name}}</option>
       </select>
     </label>
 

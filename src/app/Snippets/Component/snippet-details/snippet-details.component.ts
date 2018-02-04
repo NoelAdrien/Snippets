@@ -14,6 +14,7 @@ import { Langages } from '../../Model/Langages';
   templateUrl: './snippet-details.component.html',
   styleUrls: ['./snippet-details.component.css']
 })
+
 export class SnippetDetailsComponent implements OnInit {
 
   langages: Langages[] = LANGAGES;
@@ -33,8 +34,7 @@ export class SnippetDetailsComponent implements OnInit {
   getSnippet(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     console.log(`get snippet id : ${{id}}`);
-    this.snippet = this.snippetService.getSnippet(id);
-    // this.heroService.GetHeroById(id).subscribe(hero => this.hero = hero);
+    this.snippetService.getSnippet(id).subscribe(snippetApi => this.snippet = snippetApi);
   }
 
   saveSnippet(): void {
