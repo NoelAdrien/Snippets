@@ -4,26 +4,27 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ResultSearchSnippetsComponent } from './Search/result-search-snippets/result-search-snippets.component';
 import { UserInformationsComponent } from './Users/user-informations/user-informations.component';
-import { ProfilComponent } from './Users/profil/profil.component';
-import { SnippetModule } from './Snippets/snippet/snippet.module';
-import { MessageComponent } from './Shared/Messages/Component/message/message.component';
+// import { ProfilComponent } from './Users/profil/profil.component';
 
+import { SnippetModule } from './Snippets/snippet/snippet.module';
+import { UserModule } from './Users/user/user.module';
+
+import { MessageComponent } from './Shared/Messages/Component/message/message.component';
 import { MessageService } from './Shared/Messages/Services/message.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ResultSearchSnippetsComponent,
     UserInformationsComponent,
-    ProfilComponent,
+    // ProfilComponent,
     MessageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SnippetModule
+    SnippetModule,
+    UserModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { asEnumerable, AsEnumerable } from 'linq-es2015';
+
 import { Snippet } from '../../Model/Snippet';
 import { LANGAGES } from '../../Mock/mock-langages';
 import { Langages } from '../../Model/Langages';
@@ -20,13 +22,13 @@ export class AddSnippetComponent implements OnInit {
   snippet: Snippet;
   snippets: Snippet[];
 
-  AddSnippet(title: string, keywords: string, langage: Langages, isPublic: boolean, codeSnippet: string): void {
+  AddSnippet(title: string, keywords: string, langageId: number, isPublic: boolean, codeSnippet: string): void {
 
     const snippet = new Snippet();
     snippet.id = this.getMaxSnippetsId();
     snippet.title = title;
     snippet.keywords = keywords;
-    snippet.langage = langage;
+    snippet.langage = AsEnumerable(this.langages).Where(x => x.id === +langageId).FirstOrDefault();
     snippet.isPublic = isPublic;
     snippet.code = codeSnippet;
 

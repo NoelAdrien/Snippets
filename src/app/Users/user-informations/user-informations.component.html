@@ -3,6 +3,7 @@
   Utilisateur : {{user.id}}
   {{user.firstName}} {{user.lastName}}
   mail : {{user.email}}
-  <a href="#">Profil</a>
+  <a routerLink="Profil/{{user.id}}">Profil</a>
 </div>
 
+<router-outlet></router-outlet>
