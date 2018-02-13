@@ -1,7 +1,15 @@
+<h2>
+  Mon profil</h2>
 
-<h2>Mon profil</h2>
-
-<label>Name</label>
-<input type="text" value="Noel"/>
-<label>First name</label>
-<input type="text" value="Adrien"/>
+<div *ngIf="user">
+  <label>Name
+    <input type="text" [(ngModel)]="user.lastName" />
+  </label>
+  <label>FirstName
+    <input type="text" [(ngModel)]="user.firstName" />
+  </label>
+  <label>Email
+    <input type="text" [(ngModel)]="user.email" />
+  </label>
+  <button type="button" (click)="save()">Save</button>
+</div>

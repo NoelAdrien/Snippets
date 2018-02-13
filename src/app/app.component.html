@@ -1,9 +1,11 @@
-
-<h1>Snippets</h1>
-
-<app-user-informations></app-user-informations>
-
-<h2>Create, use and share your snippets !</h2>
+<div id="header">
+  <span class="FloatLeft">
+    <h1> Snippets</h1>
+  </span>
+  <span class="FloatLeft">
+    <h2>Create, use and share your snippets !</h2>
+  </span>
+</div>
 
 <div id="menu">
   <nav>
@@ -12,8 +14,9 @@
   </nav>
 </div>
 
-
-
-<router-outlet></router-outlet>
+<div id="content">
+  <app-user-informations></app-user-informations>
+  <router-outlet></router-outlet>
+</div>
 
 <app-message></app-message>

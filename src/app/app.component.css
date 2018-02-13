@@ -1,5 +1,42 @@
+
 h1 {
-  color: #369;
+  color: rgb(241, 107, 18);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
+}
+
+h2{
+  margin-top: 41px;
+  padding-left: 32px;
+}
+
+#menu {
+  width: 100%;
+  padding: 20px;
+  background-color: rgb(241, 107, 18);
+  float: left;
+}
+
+#menu nav{
+  margin-left: -20px;
+}
+
+#menu a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 20px;
+}
+
+#menu a:hover {
+  font-weight: bold;
+  background-color: rgb(255, 137, 59);
+}
+
+#content{
+  clear: both;
+}
+
+.FloatLeft{
+  float: left;
 }
